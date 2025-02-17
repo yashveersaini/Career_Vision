@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Listings - Career Path</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="/static/css/style.css" rel="stylesheet">
+    <link href="/static/css/jobs.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container-fluid d-flex justify-content-center align-items-center">
+                <h1 class="navbar-brand m-0 text-center">JOB LISTINGS</h1>
+            </div>
+        </nav>    
+    </header>
+
+    <div class="container main-container">
+        <div class="filter-section">
+            <div class="search-box">
+                <input type="text" id="searchInput" class="form-control" placeholder="Search jobs...">
+            </div>
+            <div class="filter-box">
+                <select id="interestFilter" class="form-select">
+                    <option value="">All Categories</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="jobListings" class="job-listings">
+            <!-- Jobs will be populated here -->
+        </div>
+    </div>
+
+    {% include 'footer.html' %}
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/js/jobs.js"></script>
+</body>
+</html>

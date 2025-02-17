@@ -1,0 +1,56 @@
+interest,skills,job_role
+Computer science and technology,"Python, Numpy, Pandas, Scikit-Learn, TensorFlow, Keras",Machine Learning Engineer
+Computer science and technology,"HTML, CSS, JavaScript, React, Angular, Node.js",Frontend Developer
+Computer science and technology,"Java, Spring, Hibernate, REST APIs, Microservices",Backend Developer
+Computer science and technology,"React, Redux, TypeScript, JavaScript, HTML, CSS",Full Stack Developer
+Computer science and technology,"SQL, Tableau, Excel, Power BI, Data Visualization",Data Analyst
+Computer science and technology,"Python, TensorFlow, PyTorch, Deep Learning, NLP",AI Engineer
+Computer science and technology,"Linux, Networking, Cybersecurity, Firewalls, Penetration Testing",Cybersecurity Specialist
+Computer science and technology,"Android, Kotlin, Java, Mobile Development, REST APIs",Mobile App Developer (Android)
+Computer science and technology,"Flutter, Dart, Firebase, Mobile App Development",Mobile App Developer (Flutter)
+Computer science and technology,"Django, Flask, Python, REST APIs, PostgreSQL",Python Developer
+Computer science and technology,"AWS, Cloud Computing, Docker, Kubernetes, Terraform",Cloud Engineer
+Computer science and technology,"Machine Learning, Data Science, Python, R, SQL",Data Scientist
+Computer science and technology,"DevOps, Jenkins, Git, CI/CD, Ansible, Docker",DevOps Engineer
+Computer science and technology,"UI/UX Design, Figma, Adobe XD, Wireframing, Prototyping",UI/UX Designer
+Computer science and technology,"Big Data, Hadoop, Spark, Hive, Kafka",Big Data Engineer
+Computer science and technology,"iOS Development, Swift, Objective-C, Xcode, REST APIs",iOS Developer
+Computer science and technology,"Blockchain, Ethereum, Smart Contracts, Solidity",Blockchain Developer
+Computer science and technology,"Game Development, Unity, C#, 3D Modeling",Game Developer
+Computer science and technology,"Data Engineering, ETL, Apache Airflow, SQL, Python",Data Engineer
+Computer science and technology,"Product Management, Agile, Scrum, Jira, Roadmapping",Product Manager
+Business & management,"Leadership, Strategic Thinking, Decision Making, Financial Acumen",Chief Executive Officer
+Business & management,"Sales Strategy, Market Research, Negotiation, Client Management",Business Development Manager
+Business & management,"Project Planning, Risk Management, Budgeting, Team Coordination",Project Manager
+Business & management,"Financial Analysis, Budgeting, Risk Management, Compliance",Financial Manager
+Business & management,"Process Optimization, Supply Chain Management, Data Analytics",Operations Manager
+Engineering & Robotics,"CAD Design, Thermodynamics, Manufacturing Processes, Problem-Solving",Mechanical Engineer
+Engineering & Robotics,"Automation, AI & Machine Learning, Control Systems, Programming",Robotics Engineer
+Engineering & Robotics,"Circuit Design, Embedded Systems, Signal Processing, Power Systems",Electrical Engineer
+Engineering & Robotics,"Programming, ROS, Algorithm Development, Embedded Systems",Robotics & Embedded Systems
+Engineering & Robotics,"Aerodynamics, Structural Analysis, Propulsion Systems, Systems Engineering",Aerospace Engineer
+healthcare and medicine,"Medical knowledge, diagnostic skills, patient care, decision-making, communication, ethics",Doctor Physician
+healthcare and medicine,"Clinical skills, patient assessment, empathy, teamwork, time management, adaptability, record-keeping",Registered Nurse RN
+healthcare and medicine,"Drug knowledge, attention to detail, communication, counseling skills, ethical decision-making",Pharmacist
+healthcare and medicine,"Lab testing skills, analytical thinking, attention to detail, technical knowledge, use of medical equipment",Medical Laboratory Technician
+healthcare and medicine,"Anatomy knowledge, rehabilitation techniques, patient education, physical stamina, adaptability, interpersonal skills",Physical Therapist
+Arts and Design,"Creativity, typography, branding, Adobe Photoshop Illustrator",Graphic Designer
+Arts and Design,"digital illustration, composition, storytelling",Illustrator
+Arts and Design,"Space planning, color theory, 3D modeling, AutoCAD",Interior Designer
+Arts and Design,"Textile knowledge, sketching, trend analysis, pattern making",Fashion Designer
+Arts and Design,"Motion graphics, 3D modeling, storytelling, Adobe After Effects",Animator
+Media and communication ,"Verbal & written communication, public speaking, storytelling",Communication Skills
+Media and communication ,"Video editing, audio production, photography, graphic design",Media Production
+Media and communication ,"Social media management, content creation, SEO, analytics",Digital & Social Media
+Media and communication ,"Journalism, fact-checking, market research, crisis communication",Research & Critical Thinking
+Media and communication ,"Networking, teamwork, time management, adaptability",Interpersonal & Organizational Skills
+Law and Goverment,"Legal Research, Litigation, Negotiation, Contract Drafting",Lawyer
+Law and Goverment,"Legal Interpretation, Decision-Making, Critical Thinking, Ethics",Judge
+Law and Goverment,"Policy Analysis, Research, Public Administration, Communication",Legislative Analyst
+Law and Goverment,"Governance, Public Policy, Budget Management, Leadership",Public Administrator
+Law and Goverment,"Criminal Investigation, Crisis Management, Conflict Resolution, Surveillance",Law Enforcement Officer 
+Education & Training,"Leadership, Policy Implementation, Staff Management, Decision-Making",Educational Administrator
+Education & Training,"Curriculum Design, Instructional Strategies, Data Analysis, Educational Assessment",Curriculum Developer
+Education & Training,"Training Program Development, Public Speaking, Coaching, Employee Engagement",Corporate Trainer
+Education & Training,"Subject Matter Expertise, Research, Teaching, Academic Writing",Professor
+Education & Training,"nstructional Design, Learning Management Systems (LMS), Multimedia Development, Technology Integration",E-Learning Specialist
