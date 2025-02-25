@@ -3,7 +3,8 @@ import numpy as np
 import pandas as pd
 from flask import Flask, request, jsonify, render_template
 import joblib
-import openai
+import google.generativeai as genai
+import re
 import logging
 
 logging.basicConfig(level=logging.DEBUG)
@@ -23,6 +24,7 @@ try:
 except Exception as e:
     logger.error(f"Error loading model: {e}")
     raise
+
 
 # Function to predict job roles
 def predict_job_roles_with_fallback(skills_list, interest, threshold=0.3):
@@ -62,8 +64,9 @@ def predict_job_roles_with_fallback(skills_list, interest, threshold=0.3):
         logger.error(f"Prediction error: {e}")
         return ["Data Analyst", "Software Developer"]  # Safe fallback
 
+
 YOUTUBE_VIDEO_LINKS = {
-    "Machine Learning Engineer":[
+    "Machine Learning Engineer": [
         "https://www.youtube.com/embed/T4MLrtOKPjY?si=nRwq1K0rjBgXCNCt",
         "https://www.youtube.com/embed/AMxtGWcMYd4?si=5q-bC3zQkUdrntFA"
     ],
@@ -122,7 +125,7 @@ YOUTUBE_VIDEO_LINKS = {
     "Big Data Engineer": [
         "https://www.youtube.com/embed/Atc7Jt-OhXw?si=-J4YwBFX4K5rSj7a",
         "https://www.youtube.com/embed/rsOSrEbK7sU?si=lNxZOTDG-jcFZMha"
-    ] ,
+    ],
     "iOS Developer": [
         "https://www.youtube.com/embed/q9XJPz9dSh4?si=U40ZQhzzKIsWW4hC",
         "https://www.youtube.com/embed/CuB3dg8F3sY?si=3GQpyl8o0P5ZQQMN"
@@ -130,7 +133,7 @@ YOUTUBE_VIDEO_LINKS = {
     "Blockchain Developer": [
         "https://www.youtube.com/embed/uULy2rc6YDc?si=H9UTjDlh_Gtn5b8G",
         "https://www.youtube.com/embed/8BpxqVGiuSk?si=DpyNQj04YPf4qv9E"
-    ] ,
+    ],
     "Game Developer": [
         "https://www.youtube.com/embed/GqKjSpd2zvY?si=UyCRFL9u92I2co66",
         "https://www.youtube.com/embed/qPxvmrtTQ_4?si=OEqZ1xth1RwX3g4Z"
@@ -141,13 +144,15 @@ YOUTUBE_VIDEO_LINKS = {
     ],
     "Product Manager": [
         "https://www.youtube.com/embed/J8VBh3JhNDY?si=ZoBfNYqPN_SV4pkP",
-        "https://www.youtube.com/embed/HNfVykENVrg?si=_DkEn2EJAmauq7SX" 
+        "https://www.youtube.com/embed/HNfVykENVrg?si=_DkEn2EJAmauq7SX"
     ]
 }
+
 
 @app.route('/')
 def index():
     return render_template('index.html')
+
 
 @app.route('/predict', methods=['POST'])
 def predict():
@@ -167,9 +172,9 @@ def predict():
             video_links = YOUTUBE_VIDEO_LINKS.get(role, [])
             if len(video_links) < 2:
                 video_links.extend([
-                    "https://www.youtube.com/embed/dQw4w9WgXcQ",
-                    "https://www.youtube.com/embed/dQw4w9WgXcQ"
-                ][:2 - len(video_links)])
+                                       "https://www.youtube.com/embed/dQw4w9WgXcQ",
+                                       "https://www.youtube.com/embed/dQw4w9WgXcQ"
+                                   ][:2 - len(video_links)])
             results.append({"role": role, "video_links": video_links})
 
         return jsonify(results)
@@ -178,13 +183,16 @@ def predict():
         logger.error(f"Error in predict route: {e}")
         return jsonify({"error": "Internal server error"}), 500
 
+
 @app.route('/chat')
 def chat():
     return render_template('chat.html')
 
+
 @app.route('/jobs')
 def jobs():
     return render_template('jobs.html')
+
 
 @app.route('/get_jobs')
 def get_jobs():
@@ -197,6 +205,15 @@ def get_jobs():
         logger.error(f"Error getting jobs: {e}")
         return jsonify({"error": "Error fetching job listings"}), 500
 
+
+# Set up API Key
+API_KEY = "AIzaSyBs0W-DuzlhnK_Yw_yJlPY1AaFt9I0CPAs"
+genai.configure(api_key=API_KEY)
+
+# Create a model instance
+model = genai.GenerativeModel("gemini-pro")
+
+
 @app.route('/api', methods=['POST'])
 def chatbot():
     try:
@@ -204,26 +221,17 @@ def chatbot():
         if not user_message:
             return jsonify({"error": "Please enter a message"}), 400
 
-        response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",
-            messages=[{
-                "role": "system",
-                "content": "You are a career counselor helping users with job-related questions."
-            }, {
-                "role": "user",
-                "content": user_message
-            }]
-        )
+        # Generate response using Gemini
+        response = model.generate_content(
+            f"You are a career counselor helping users with job-related questions so give answer in short.\nUser: {user_message}")
 
-        bot_response = response['choices'][0]['message']['content']
-        return jsonify({"response": bot_response})
+        # bot_response = response.text
+        clean_text = re.sub(r"\*\*(.*?)\*\*", r"\1", response.text)
+        return jsonify({"response": clean_text})
 
     except Exception as e:
-        logger.error(f"Chat API error: {e}")
-        return jsonify({
-            "error": "An error occurred while processing your request",
-            "details": str(e)
-        }), 500
+        return jsonify({"error": str(e)}), 500
+
 
 if __name__ == '__main__':
     app.run(debug=True)
