@@ -1,8 +1,7 @@
-sklearn
-numpy 
+Flask
+numpy
 pandas
-flask 
+scikit-learn
 joblib
-google.generativeai
-re
-logging
+google-generativeai
+gunicorn
