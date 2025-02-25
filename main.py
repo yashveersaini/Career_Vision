@@ -211,7 +211,7 @@ def get_jobs():
 
 
 # Set up API Key
-API_KEY = os.getenv("GEMINI_API_KEY)
+API_KEY = "AIzaSyBs0W-DuzlhnK_Yw_yJlPY1AaFt9I0CPAs"
 genai.configure(api_key=API_KEY)
 
 # Create a model instance
