@@ -5,6 +5,7 @@ from flask import Flask, request, jsonify, render_template
 import joblib
 import google.generativeai as genai
 import re
+import os
 import logging
 
 logging.basicConfig(level=logging.DEBUG)
@@ -12,9 +13,12 @@ logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
 
+model_path = os.path.join(os.path.dirname(__file__), "attached_assets", "deemanding_job_model.joblib")
+csv_path = os.path.join(os.path.dirname(__file__), "attached_assets", "deemanding_job.csv")
+
 # Load the saved model and label encoders
 try:
-    model_data = joblib.load('attached_assets/deemanding_job_model.joblib')
+    model_data = joblib.load(model_path)
     logger.info("Successfully loaded model data")
     pipeline = model_data['pipeline']
     label_encoder = model_data['label_encoder']
@@ -198,7 +202,7 @@ def jobs():
 def get_jobs():
     try:
         # Load job data from CSV
-        df = pd.read_csv("attached_assets/deemanding_job.csv")
+        df = pd.read_csv(csv_path)
         jobs_list = df.to_dict('records')
         return jsonify(jobs_list)
     except Exception as e:
