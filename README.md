@@ -13,5 +13,3 @@ Deemanding Job listing:
 ![Screenshot (321)](https://github.com/user-attachments/assets/de8fddd9-4fd3-4647-9174-67aefe2aa303)
 
 Demo video of project=====>>>>
-
-https://github.com/user-attachments/assets/611355b4-793c-46a2-a30e-962d72461f0
