@@ -1,0 +1,8 @@
+sklearn
+numpy 
+pandas
+flask 
+joblib
+google.generativeai
+re
+logging
